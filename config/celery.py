@@ -21,13 +21,13 @@ app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
 
 # scheduler
 
-app.conf.beat_schedule = {
-    'remind-users-to-activate-account': {
-        'task':'apps.core.tasks.remind_users_to_activate_code',
-        'schedule':timedelta(days=1) # everyday
-    },
+# app.conf.beat_schedule = {
+#     'remind-users-to-activate-account': {
+#         'task':'apps.core.tasks.remind_users_to_activate_code',
+#         'schedule':timedelta(days=1) # everyday
+#     },
 
-}
+# }
 
 
 

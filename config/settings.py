@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-lj_roswyu1m7(ou=8p9&sdxgu1*v91rmjjnd&e&%=su@vywbfm
 DEBUG = False
 
 # ALLOWED_HOSTS: routes to access this project
-ALLOWED_HOSTS = ['ukinvite.herokuapp.com']
+ALLOWED_HOSTS = ['ukvite.herokuapp.com']
 
 # Application definition
 
@@ -248,7 +248,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-SITE_DOMAIN = 'ukinvite.herokuapp.com'
+SITE_DOMAIN = ALLOWED_HOSTS[0]
 
 
 # PROJECT SETTINGS
