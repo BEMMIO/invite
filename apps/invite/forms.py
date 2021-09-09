@@ -76,6 +76,7 @@ class InviteForm(forms.ModelForm):
 			if commit:
 				invite_obj.save()
 				# signal invite created
+				print("SIGNAL in invite forms.py")
 				invite_is_created.send(sender=self.__class__,
 										invite=invite_obj)
 				# celery to send email
