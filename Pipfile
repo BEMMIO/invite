@@ -1,0 +1,24 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = {extras = ["argon2"], version = "*"}
+django-pglocks = "*"
+pillow = "*"
+celery = "*"
+redis = "*"
+psycopg2 = "*"
+python-decouple = "*"
+pipenv = "*"
+install = "*"
+argon2-cffi = "*"
+django-celery-beat = "*"
+django-heroku = "*"
+gunicorn = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"

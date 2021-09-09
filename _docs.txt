@@ -1,0 +1,10 @@
+Simple Exercises.
+
+- logging in django (explore & use sentry)
+- redis caching
+- internationalization & localization
+- postgres search (full-text)
+- like w/ generic foreignkey/ books
+- search for books
+- user account (email signup as invite, login (username or email & passwrd),etc)
+- postgres db setup on elephantsql
