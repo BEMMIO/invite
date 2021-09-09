@@ -33,7 +33,7 @@ class InviteForm(forms.ModelForm):
 		# -user already exists with given email,this email has been banned from this site etc
 		# UI/UX show as an aside : slide in and out & also access it on user profile page
 		# clean_invite_message : as user may clear the message body, and assign the default again
-		default_message = mark_safe("{user} is inviting you to join bookstagram.com".format(user=self.user.username))
+		default_message = mark_safe("{user} is inviting you to join ukvite.herokuapp.com".format(user=self.user.username))
 		self.fields['invite_message'].initial = default_message
 
 
