@@ -208,7 +208,7 @@ TEMPLATE_LOADERS = [
 ]
 
 # Redis configuration
-REDIS_URL = 'redis://:pafd7004369ae26f966182a6157f510e4d0bb52cfee74b8c4e9b029c8f4ddb1a2@ec2-54-82-190-200.compute-1.amazonaws.com:32459'
+REDIS_URL = 'redis://:pf2930bb010e7036e064b37cd92416adc68db2fb7cb9f6f9c9ea89850bbf412c3@ec2-52-3-166-225.compute-1.amazonaws.com:23900'
 
 # Celery configurations
 CELERY_BROKER_URL = REDIS_URL
