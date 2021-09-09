@@ -24,9 +24,9 @@ def test_celery_func():
 
 @app.task
 def send_invite_email(invite):
-	domain = "127.0.0.1:8000"
+	domain = settings.SITE_DOMAIN
 
-	link_url = "localhost:8000"
+	link_url = settings.SITE_DOMAIN
 
 	subject = "Invite to Join Site"
 
@@ -65,6 +65,6 @@ def remind_users_to_activate_code():
 		"Account needs activation",
 		"Please activate your account",
 		settings.DEFAULT_FROM_EMAIL,
-		emails,# list
+		emails,
 	)
 
