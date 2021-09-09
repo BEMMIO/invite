@@ -61,6 +61,7 @@ PROJECT_APPS = [
 THIRD_PARTY_APPS = [
 
     # 'django_celery_beat',
+    'storages',
 
 ]
 
@@ -257,3 +258,23 @@ SITE_DOMAIN = ALLOWED_HOSTS[0]
 RANDOM_AVATAR_PATH = os.path.join(MEDIA_ROOT,'random_avatars') 
 
 django_heroku.settings(locals())
+
+# AWS config
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_ACCESS_KEY_ID = 'AKIAS2UHTDCKUVNREGYS'
+AWS_SECRET_ACCESS_KEY = '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'
+
+AWS_STORAGE_BUCKET_NAME = 'ukvite'
+
+AWS_QUERYSTRING_AUTH = False
+
+AWS_AUTO_CREATE_BUCKET = True
+
+MEDIA_URL = f"https://s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/"
+
+_AWS_EXPIRY = 60 * 60 * 24 * 7
+# https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
+AWS_S3_OBJECT_PARAMETERS = {
+    "CacheControl": f"max-age={_AWS_EXPIRY}, s-maxage={_AWS_EXPIRY}, must-revalidate"
+}

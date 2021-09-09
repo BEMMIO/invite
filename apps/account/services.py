@@ -25,7 +25,7 @@ def create_username_from_email(email:str) -> str:
 
 @tx.atomic
 def create_inactive_user_account_from_email(*,user_email:str,invite_code:str=None):
-
+    # NB: signals can't handle this tasks. - celery is great !
     email = user_email
     username = create_username_from_email(user_email)
 

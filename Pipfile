@@ -17,6 +17,8 @@ argon2-cffi = "*"
 django-celery-beat = "*"
 django-heroku = "*"
 gunicorn = "*"
+boto3 = "*"
+django-storages = "*"
 
 [dev-packages]
 
