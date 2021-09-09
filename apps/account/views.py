@@ -15,7 +15,6 @@ from django.urls import reverse
 from .forms import RegisterForm
 from ..users.models import User
 from ..invite.forms import InviteForm
-from ..invite.signals import invite_is_created
 from .forms import LoginForm
 
 backend_auth = getattr(settings,"BACKEND_AUTH")
