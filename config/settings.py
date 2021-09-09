@@ -206,9 +206,7 @@ TEMPLATE_LOADERS = [
     "django.template.loaders.app_directories.Loader",
 ]
 
-# Redis configuration
-REDIS_TLS_URL = 'rediss://:pf2930bb010e7036e064b37cd92416adc68db2fb7cb9f6f9c9ea89850bbf412c3@ec2-52-3-166-225.compute-1.amazonaws.com:23900'
-REDIS_URL = 'redis://:pf2930bb010e7036e064b37cd92416adc68db2fb7cb9f6f9c9ea89850bbf412c3@ec2-52-3-166-225.compute-1.amazonaws.com:23899'
+REDIS_URL = config('REDIS_URL')
 
 # Celery configurations
 CELERY_BROKER_URL = REDIS_URL
