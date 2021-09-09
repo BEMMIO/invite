@@ -33,7 +33,6 @@ DEBUG = False
 # ALLOWED_HOSTS: routes to access this project
 ALLOWED_HOSTS = ['ukinvite.herokuapp.com']
 
-
 # Application definition
 
 DJANGO_APPS = [
@@ -59,7 +58,7 @@ PROJECT_APPS = [
 
 THIRD_PARTY_APPS = [
 
-    'django_celery_beat',
+    # 'django_celery_beat',
 
 ]
 
@@ -127,12 +126,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # # DATABASE
 # # ------------------------------------------------------------------------------
 # # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # PASSWORDS
@@ -214,14 +213,14 @@ REDIS_URL = 'redis://:pf2930bb010e7036e064b37cd92416adc68db2fb7cb9f6f9c9ea89850b
 # Celery configurations
 CELERY_BROKER_URL = REDIS_URL
 CELERY_RESULT_BACKEND = REDIS_URL
+
 CELERY_ACCEPT_CONTENT = ['application/json']
-# CELERY_TASK_ALWAYS_EAGER = not CELERY_BROKER_URL
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = TIME_ZONE
 
 # Celery beats
-CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
+# CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 
 
 
