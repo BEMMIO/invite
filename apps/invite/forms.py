@@ -1,5 +1,6 @@
 from django.utils.safestring import mark_safe
 from django import forms
+from django.db import transaction as tx
 
 from .signals import invite_is_created
 from ..core.tasks import send_invite_email
@@ -66,17 +67,17 @@ class InviteForm(forms.ModelForm):
 			- 	banned e-mails?
 
 	'''
-
 	def save(self,force_insert=False,force_update=False,commit=True,**kwargs):
 		invite_obj = super().save(commit=False)
 
 		invite_obj.invite_from_user = self.user
 		invite_obj.invite_status = InvitationChoices.SENT
-		if commit:
-			invite_obj.save()
-			# signal invite created
-			invite_is_created.send(sender=self.__class__,
-									invite=invite_obj)
-			# celery to send email
-			send_invite_email(invite_obj)
-		return invite_obj
+		with tx.atomic():
+			if commit:
+				invite_obj.save()
+				# signal invite created
+				invite_is_created.send(sender=self.__class__,
+										invite=invite_obj)
+				# celery to send email
+				send_invite_email(invite_obj)
+			return invite_obj
