@@ -10,6 +10,7 @@ from django.core.mail import BadHeaderError
 
 from ..users.models import User as model_cls
 from ..account.mail import send_mail
+from ..account import services
 
 
 
@@ -20,6 +21,14 @@ def test_celery_func():
 		print(i)
 	return " Celery YEEH -:) "
 
+
+@app.task
+def create_new_user_task(invite):
+	user = services.create_inactive_user_account_from_email(user_email=invite.invite_to_email,
+															invite_code=invite.invite_token)
+	invite.invite_to_user = user
+	invite.save(update_fields=["invite_to_user"])
+	print("new user created")
 
 
 @app.task

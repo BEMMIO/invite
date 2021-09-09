@@ -2,7 +2,7 @@ from django.utils.safestring import mark_safe
 from django import forms
 from django.db import transaction as tx
 
-from .signals import invite_is_created
+# from .signals import invite_is_created
 from ..core.tasks import send_invite_email
 from .models import Invitation as model_cls,InvitationChoices
 
@@ -69,16 +69,17 @@ class InviteForm(forms.ModelForm):
 	'''
 	def save(self,force_insert=False,force_update=False,commit=True,**kwargs):
 		invite_obj = super().save(commit=False)
-
+		from apps.core.tasks import create_new_user_task
 		invite_obj.invite_from_user = self.user
 		invite_obj.invite_status = InvitationChoices.SENT
 		with tx.atomic():
 			if commit:
 				invite_obj.save()
 				# signal invite created
-				print("SIGNAL in invite forms.py")
-				invite_is_created.send(sender=None,
-										invite=invite_obj)
+				print("celery called in invite forms.py")
+				create_new_user_task(invite_obj)
+				# invite_is_created.send(sender=None,
+				# 						invite=invite_obj)
 				# celery to send email
 				send_invite_email(invite_obj)
 			return invite_obj
