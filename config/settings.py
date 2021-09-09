@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-lj_roswyu1m7(ou=8p9&sdxgu1*v91rmjjnd&e&%=su@vywbfm
 DEBUG = False
 
 # ALLOWED_HOSTS: routes to access this project
-ALLOWED_HOSTS = [*,'ukinvite.heroku.com']
+ALLOWED_HOSTS = ['ukinvite.heroku.com']
 
 
 # Application definition
@@ -208,7 +208,7 @@ TEMPLATE_LOADERS = [
 ]
 
 # Redis configuration
-REDIS_URL = 'redis://127.0.0.1:6379/'
+REDIS_URL = 'redis://:pafd7004369ae26f966182a6157f510e4d0bb52cfee74b8c4e9b029c8f4ddb1a2@ec2-54-82-190-200.compute-1.amazonaws.com:32459'
 
 # Celery configurations
 CELERY_BROKER_URL = REDIS_URL
