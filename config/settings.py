@@ -238,7 +238,7 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 # MEDIA
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-url
-MEDIA_URL = '/media/'
+# MEDIA_URL = '/media/'
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-root
 MEDIA_ROOT = os.path.join(BASE_DIR,'media') 
