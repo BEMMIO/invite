@@ -1,0 +1,3 @@
+https://testdriven.io/blog/storing-django-static-and-media-files-on-amazon-s3/
+
+https://aws.amazon.com/premiumsupport/knowledge-center/s3-access-file-folder/
