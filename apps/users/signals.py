@@ -10,5 +10,5 @@ This signal assigns a randomly generated avatar to a new user.
 """
 @receiver(pre_save,sender=model_cls)
 def user_default_avatar_set_reciever(sender,instance,*args,**kwargs):
-    if not instance.avatar_src:
+    if not (instance.default_avatar or instance.avatar_src):
         instance.default_avatar = user_random_avatar()
